@@ -5,7 +5,7 @@ import Contact from './Contact/Contact.jsx';
 import Dental from './Dental/Dental.jsx';
 import Info from './Info/Info.jsx';
 import MakeAppointment from './MakeAppointment/MakeAppointment.jsx';
-import Services from './Services/Services.jsx';
+import BannerServices from './BannerServices/BannerServices.jsx';
 import Testimonials from './Testimonials/Testimonials.jsx';
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
         <div>
            <Banner></Banner>
             <Info></Info>
-            <Services></Services>
+             <BannerServices></BannerServices>
             <Dental></Dental>
             <MakeAppointment></MakeAppointment>
             <Testimonials />
