@@ -15,7 +15,8 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
-    const [sendEmailVerification ] = useSendEmailVerification(auth);
+
+    const [sendEmailVerification, sending, gErrorEmail  ] = useSendEmailVerification(auth);
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
@@ -25,12 +26,21 @@ const SignUp = () => {
 
     let signInError;
 
-    if (loading || gLoading || updating) {
+    if (loading || gLoading || updating ||sending) {
         return <Loading></Loading>
     }
 
-    if (error || gError || updateError) {
-        signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
+    if (error || gError || updateError || gErrorEmail) {
+      signInError = (
+        <p className="text-red-500">
+          <small>
+            {error?.message ||
+              gError?.message ||
+              updateError?.message ||
+              gErrorEmail?.message}
+          </small>
+        </p>
+      );
     }
 
     if (token) {
